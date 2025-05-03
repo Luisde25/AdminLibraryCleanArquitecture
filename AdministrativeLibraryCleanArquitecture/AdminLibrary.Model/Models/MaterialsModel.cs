@@ -1,0 +1,35 @@
+﻿using AdminLibrary.Shared;
+
+namespace AdminLibrary.Model.Models
+{
+    public class MaterialsModel : EntityBase<int>
+    {
+        public MaterialsModel()
+        {
+
+        }
+        public MaterialsModel(
+            string identifier,
+            string title,
+            DateTime registerDate,
+            int registerQuantity,
+            int currentQuantity
+            )
+        {
+            Identifier = identifier;
+            Title = title;
+            RegisterDate = registerDate;
+            RegisterQuantity = registerQuantity;
+            CurrentQuantity = currentQuantity;
+        }
+        public string Identifier { get; set; }
+        public string Title { get; set; }
+        public DateTime RegisterDate { get; set; }
+        public int RegisterQuantity { get; set; }
+        public int CurrentQuantity { get; set; }
+        public virtual ICollection<MaterialsMovements> MovementsVirtual { get; set; } = null!;
+        public virtual ICollection<MaterialHistory> HistoryVirtual { get; set; } = null!;
+
+        
+    }
+}
